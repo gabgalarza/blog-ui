@@ -1,4 +1,4 @@
-var proxy = require('http-proxy-middleware')
+const {createProxyMiddleware} = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
@@ -8,7 +8,12 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sass',
+    {
+      resolve: 'gatsby-plugin-sass',
+      options: {
+        additionalData: `@import '~bulma/sass/utilities/initial-variables';`
+      }
+    },
     {
       // keep as first gatsby-source-filesystem plugin for gatsby image support
       resolve: 'gatsby-source-filesystem',
@@ -62,16 +67,13 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-      },
+      resolve: 'gatsby-plugin-netlify-cms'
     },
     {
       resolve: 'gatsby-plugin-purgecss', // purges all unused/unreferenced css rules
       options: {
         develop: true, // Activates purging in npm run develop
-        purgeOnly: ['/all.sass'], // applies purging only on the bulma css file
+        purgeOnly: ['/all.scss'], // applies purging only on the bulma css file
       },
     }, // must be after other CSS plugins
     'gatsby-plugin-netlify', // make sure to keep it last in the array
@@ -81,7 +83,7 @@ module.exports = {
   developMiddleware: app => {
     app.use(
       '/.netlify/functions/',
-      proxy({
+      createProxyMiddleware({
         target: 'http://localhost:9000',
         pathRewrite: {
           '/.netlify/functions/': '',
