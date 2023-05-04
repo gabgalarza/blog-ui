@@ -20,13 +20,12 @@ It follows the [JAMstack architecture](https://jamstack.org) by using Git as a s
 - Uses `gatbsy-image` with Netlify-CMS preview support
 - Separate components for everything
 - Netlify deploy configuration
-- Netlify function support, see `src/lambda` folder
 - Perfect score on Lighthouse for SEO, Accessibility and Performance (wip:PWA)
 - ..and more
 
 ## Prerequisites
 
-- Node (I recommend using v8.2.0 or higher)
+- Node (v18.12.0 or higher)
 - [Gatsby CLI](https://www.gatsbyjs.org/docs/)
 
 ## Getting Started (Recommended)
@@ -96,8 +95,3 @@ npm install --global --production windows-build-tools
 
 ## Purgecss
 This plugin uses [gatsby-plugin-purgecss](https://www.gatsbyjs.org/packages/gatsby-plugin-purgecss/) and [bulma](https://bulma.io/). The bulma builds are usually ~170K but reduced 90% by purgecss.
-
-# CONTRIBUTING
-
-Contributions are always welcome, no matter how large or small. Before contributing,
-please read the [code of conduct](CODE_OF_CONDUCT.md).

@@ -1,13 +1,28 @@
 @import "~bulma/sass/utilities/initial-variables";
 
-// Config vars
-$kaldi-red: #D64000;
-$kaldi-red-invert: #fff;
-
-$primary: $kaldi-red;
-$primary-invert: $kaldi-red-invert;
+// Primary and body colors
+$primary: #D64000;
+$primary-invert: #fff;
 $body-color: #333;
 $black: #2b2523;
+
+// Button
+$btn-bg-color: #fff;
+$btn-text-color: #CC3700;
+$btn-box-shadow-color: #f40;
+
+
+// Menu overrides
+$menu-item-color: $white-ter;
+$menu-item-hover-color: $black !important;
+$menu-item-hover-background-color: $black;
+$menu-item-active-color: $primary-invert;
+$menu-item-active-background-color: $primary-invert;
+$menu-list-border-left: 1px solid $primary-invert;
+$menu-label-color: $white-ter;
+
+// Blog post
+$is-featured-bg-color: #d6400033;
 
 .navbar .navbar-menu {
   box-shadow: none !important;
@@ -57,14 +72,14 @@ $black: #2b2523;
   font-size: 18px;
   font-size: 1rem;
   line-height: 1.25;
-  background-color: #fff;
+  background-color: $btn-bg-color;
   border-radius: .25rem;
   text-decoration: none;
   font-weight: 700;
-  color: #CC3700;
+  color: $btn-text-color;
   text-align: center;
-  -webkit-box-shadow: inset 0 0 0 2px #CC3700;
-  box-shadow: inset 0 0 0 2px #f40;
+  -webkit-box-shadow: inset 0 0 0 2px $btn-text-color;
+  box-shadow: inset 0 0 0 2px $btn-box-shadow-color;
   -webkit-transition: all .15s ease;
   transition: all .15s ease;
 }
@@ -86,15 +101,6 @@ footer.footer {
   padding: 3rem 0rem 0rem;
   background-color: transparent;
 }
-//Menu overrides
-$menu-item-color: $white-ter;
-$menu-item-hover-color: $black !important;
-$menu-item-hover-background-color: $black;
-$menu-item-active-color: $kaldi-red-invert;
-$menu-item-active-background-color: $kaldi-red-invert;
-$menu-list-border-left: 1px solid $kaldi-red-invert;
-$menu-label-color: $white-ter;
-
 
 .menu-label {
   font-size: 1em !important;
@@ -119,24 +125,20 @@ $menu-label-color: $white-ter;
 }
 // blog roll
 .blog-list-item.is-featured {
-  background-color: #d6400033;
+  background-color: $is-featured-bg-color;
 }
 .blog-list-item header {
   display: flex;
-
   margin-bottom: 1em;
 }
 .blog-list-item .featured-thumbnail {
   flex-basis: 35%;
-
   margin: 0 1.5em 0 0;
 }
 
-
 @import "~bulma";
 
-
-// responsiveness
+// Responsiveness
 @include tablet-only {
   .blog-list-item .featured-thumbnail {
     flex-basis: 50%;
@@ -148,9 +150,7 @@ $menu-label-color: $white-ter;
   }
   .blog-list-item .featured-thumbnail {
     text-align: center;
-
     max-width: 70%;
-
     margin: 0 0 1em;
   }
 }

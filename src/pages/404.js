@@ -1,13 +1,20 @@
 import React from 'react'
 import Layout from '../components/Layout'
+import { Link } from 'gatsby';
 
-const NotFoundPage = () => (
-  <Layout>
-    <div>
-      <h1>NOT FOUND</h1>
-      <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </div>
-  </Layout>
-)
-
-export default NotFoundPage
+export default function NotFoundPage(){
+  return (
+    <Layout>
+      <section className="section">
+          <div className="container">
+            <div className="content">
+              <h1>Page Not Found</h1>
+              <div>This route could not be found.. the sadness.</div>
+              <br/>
+              <div>Try heading back to the homepage <Link className='has-text-primary' to='/'>here</Link></div>
+            </div>
+          </div>
+        </section>
+    </Layout>
+  );
+}
